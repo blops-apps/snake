@@ -14,6 +14,8 @@
 		E488EBA924561E9B002E1295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E488EBA824561E9B002E1295 /* Assets.xcassets */; };
 		E488EBAC24561E9B002E1295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E488EBAA24561E9B002E1295 /* LaunchScreen.storyboard */; };
 		E488EBB724561E9B002E1295 /* SmartSnakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBB624561E9B002E1295 /* SmartSnakeTests.swift */; };
+		E4AEA122245B6F88008F0B1C /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AEA121245B6F88008F0B1C /* Snake.swift */; };
+		E4E1AFBD245C61B300D571C5 /* Array+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		E488EBB224561E9B002E1295 /* SmartSnakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartSnakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E488EBB624561E9B002E1295 /* SmartSnakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSnakeTests.swift; sourceTree = "<group>"; };
 		E488EBB824561E9B002E1295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4AEA121245B6F88008F0B1C /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
+		E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+subscript.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +85,13 @@
 			children = (
 				E488EB9B24561E99002E1295 /* AppDelegate.swift */,
 				E488EBA124561E99002E1295 /* GameScene.swift */,
+				E4AEA121245B6F88008F0B1C /* Snake.swift */,
 				E488EBA324561E99002E1295 /* GameViewController.swift */,
 				E488EBA524561E99002E1295 /* Main.storyboard */,
 				E488EBA824561E9B002E1295 /* Assets.xcassets */,
 				E488EBAA24561E9B002E1295 /* LaunchScreen.storyboard */,
 				E488EBAD24561E9B002E1295 /* Info.plist */,
+				E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */,
 			);
 			path = SmartSnake;
 			sourceTree = "<group>";
@@ -200,7 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AEA122245B6F88008F0B1C /* Snake.swift in Sources */,
 				E488EBA224561E99002E1295 /* GameScene.swift in Sources */,
+				E4E1AFBD245C61B300D571C5 /* Array+subscript.swift in Sources */,
 				E488EBA424561E99002E1295 /* GameViewController.swift in Sources */,
 				E488EB9C24561E99002E1295 /* AppDelegate.swift in Sources */,
 			);
