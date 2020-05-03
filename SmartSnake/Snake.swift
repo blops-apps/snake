@@ -29,21 +29,24 @@ class Snake {
         }
     }
     
+    var tail: SnakePart {
+        get {
+            return body.last!
+        }
+    }
+
     func next(part: SnakePart) -> SnakePart? {
         let nextIndex = part.index + 1
         return body[safe: nextIndex]
     }
-    
+
     struct SnakePart {
         var node: SKSpriteNode
         var index: Int
-        
-        func moveSnake(direction: Direction) {
-            let vector = CGVector(dx: direction.x * snakeSpeed, dy: direction.y * snakeSpeed)
-            let move = SKAction.move(by: vector, duration: 1)
-            node.removeAction(forKey: "movingSnake")
-            node.run(SKAction.repeatForever(move), withKey: "movingSnake")
-        }
+        var destination: CGPoint? = nil
+
+
+
     }
     
     enum RotationDirection: Int {
@@ -60,17 +63,37 @@ class Snake {
     }
     
     var body: [SnakePart] = [
-        SnakePart(node: headNode(), index: 0)
-//        SnakePart(node: bodyNode(), index: 1)
+        SnakePart(node: headNode(), index: 0, destination: nil),
+        SnakePart(node: bodyNode(), index: 1, destination: nil)
     ]
+    
+    func distanceBetween(a: CGPoint, b: CGPoint) -> Double {
+        let distX = Double(a.x - b.x)
+        let distY = Double(a.y - b.y)
+        
+        return sqrt(distX*distX + distY*distY)
+    }
+    
+    func moveSnake(direction: Direction) {
+        let timeRefresh = 1.0 / Double(Snake.snakeSpeed)
+        let vector = CGVector(dx: direction.x, dy: direction.y)
+        let move = SKAction.move(by: vector, duration: timeRefresh)
+//        head.node.removeAction(forKey: "move")
+        head.node.run(SKAction.repeatForever(move), withKey: "move")
+        let p = head.node.position
+        let moveTail = SKAction.move(to: p, duration: 20 / Double(Snake.snakeSpeed))
+        tail.node.removeAllActions()
+        tail.node.run(moveTail, completion: {
+            self.tail.node.run(SKAction.repeatForever(move), withKey: "move")
+        })
+    }
     
     func start(scene: SKScene) {
         body.forEach { sp in
             scene.addChild(sp.node)
         }
-        body.forEach{ sp in
-            sp.moveSnake(direction: directions.first!)
-        }
+
+        moveSnake(direction: directions.first!)
     }
     
     func changeSnakeDirection(direction: RotationDirection) {
@@ -82,6 +105,6 @@ class Snake {
         }
         let newDirection = directions[currentDirectionIndex]
         print(newDirection.name)
-        head.moveSnake(direction: newDirection)
+        moveSnake(direction: newDirection)
     }
 }
