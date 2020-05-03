@@ -27,6 +27,14 @@ class GameScene: SKScene {
         
         snake.start(scene: self)
         
+        addRedzone(size: CGSize(width: size.width, height: 10),
+                   position: CGPoint(x: 0, y: size.height / 2 - 10)
+        )
+        
+        addRedzone(size: CGSize(width: size.width, height: 10),
+                   position: CGPoint(x: 0, y: -(size.height / 2 - 10))
+        )
+        
         addRedzone(size: CGSize(width: 10, height: size.height),
                    position: CGPoint(x: size.width / 2 - 10, y: 0)
         )

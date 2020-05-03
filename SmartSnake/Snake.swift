@@ -19,10 +19,11 @@ struct PhysicsCategory {
 
 class Snake {
    
-    static var snakeSpeed: Int = 200
+    static var snakeSpeed: Int = 100
 
     typealias Direction = (x: Int, y: Int, name: String)
-
+    var body: [SnakePart] = []
+    
     let directions: [Direction] = [
         (x: 1, y: 0, name: "right"),
         (x: 0, y: -1, name: "down"),
@@ -36,26 +37,69 @@ class Snake {
             return body.first!
         }
     }
-    
-    var tail: SnakePart {
-        get {
-            return body.last!
-        }
-    }
 
-//    func next(part: SnakePart) -> SnakePart? {
-//        let nextIndex = part.index + 1
-//        return body[safe: nextIndex]
-//    }
-
-    struct SnakePart {
+    class SnakePart {
         var node: SKSpriteNode
-
-        init(color: UIColor) {
-            self.node = SKSpriteNode(color: .green, size: CGSize(width: 20, height: 20))
+        var snake: Snake
+        var index: Int
+        var direction: Direction? = nil
+        
+        init(color: UIColor, index: Int, snake: Snake) {
+            self.index = index
+            self.snake = snake
+            let newNode = SKSpriteNode(color: color, size: CGSize(width: 20, height: 20))
+            let nodePhysic = SKPhysicsBody(rectangleOf: newNode.size)
+            nodePhysic.isDynamic = true
+            nodePhysic.usesPreciseCollisionDetection = false
+            nodePhysic.categoryBitMask = PhysicsCategory.snake
+            nodePhysic.contactTestBitMask = PhysicsCategory.walls
+            nodePhysic.collisionBitMask = PhysicsCategory.none
+            newNode.physicsBody = nodePhysic
+            self.node = newNode
         }
         
-
+        func nextPart() -> SnakePart? {
+            if let part = snake.body[safe: index + 1] {
+                return part
+            } else {
+                return nil
+            }
+        }
+        
+        func previousPart() -> SnakePart? {
+            if let part = snake.body[safe: index - 1] {
+                return part
+            } else {
+                return nil
+            }
+        }
+        
+        func moveIn(direction d: Direction) {
+            self.direction = d
+            let timeRefresh = 1.0 / Double(Snake.snakeSpeed)
+            let vector = CGVector(dx: d.x, dy: d.y)
+            let move = SKAction.move(by: vector, duration: timeRefresh)
+            node.removeAllActions()
+            node.run(SKAction.repeatForever(move))
+        }
+        
+        func pullNext() {
+            if let next = nextPart() {
+                let targetPosition = node.position
+                let nodeMove = SKAction.move(to: targetPosition, duration: 25 / Double(Snake.snakeSpeed))
+                next.node.removeAllActions()
+                next.direction = nil
+                next.node.run(nodeMove, completion: {
+//                    TODO: Check reference leaks of self!
+                    if let d = self.direction {
+                        next.direction = d
+                        next.moveIn(direction: d)
+                    }
+                    next.pullNext()
+                })
+            }
+        }
+        
     }
     
     enum RotationDirection: Int {
@@ -63,10 +107,6 @@ class Snake {
         case right = 1
     }
     
-    var body: [SnakePart] = [
-        SnakePart(color: .green),
-        SnakePart(color: .blue)
-    ]
     
     func distanceBetween(a: CGPoint, b: CGPoint) -> Double {
         let distX = Double(a.x - b.x)
@@ -76,30 +116,24 @@ class Snake {
     }
     
     func moveSnake(direction: Direction) {
-        let timeRefresh = 1.0 / Double(Snake.snakeSpeed)
-        let vector = CGVector(dx: direction.x, dy: direction.y)
-        let move = SKAction.move(by: vector, duration: timeRefresh)
-//        head.node.removeAction(forKey: "move")
-        head.node.run(SKAction.repeatForever(move), withKey: "move")
-        let p = head.node.position
-        let moveTail = SKAction.move(to: p, duration: 25 / Double(Snake.snakeSpeed))
-        tail.node.removeAllActions()
-        tail.node.run(moveTail, completion: {
-            self.tail.node.run(SKAction.repeatForever(move), withKey: "move")
-        })
+        head.moveIn(direction: direction)
+        head.pullNext()
+    }
+    
+    func addPart(color: UIColor) {
+        let newPart = SnakePart(color: color, index: body.count, snake: self)
+        body.append(newPart)
     }
     
     func start(scene: SKScene) {
+        addPart(color: .green)
+        addPart(color: .blue)
+        addPart(color: .red)
+        addPart(color: .green)
+        addPart(color: .blue)
+        addPart(color: .red)
+        
         body.forEach { sp in
-            let nodePhysic = SKPhysicsBody(rectangleOf: sp.node.size)
-            nodePhysic.isDynamic = true
-            nodePhysic.usesPreciseCollisionDetection = false
-            nodePhysic.categoryBitMask = PhysicsCategory.snake
-            nodePhysic.contactTestBitMask = PhysicsCategory.walls
-            nodePhysic.collisionBitMask = PhysicsCategory.none
-            
-            sp.node.physicsBody = nodePhysic
-            
             scene.addChild(sp.node)
         }
 
