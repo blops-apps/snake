@@ -1,11 +1,3 @@
-//
-//  Snake.swift
-//  SmartSnake
-//
-//  Created by theo on 30/04/2020.
-//  Copyright © 2020 blopz. All rights reserved.
-//
-
 import Foundation
 import SpriteKit
 
@@ -39,6 +31,7 @@ class Snake {
     }
 
     class SnakePart {
+        
         var node: SKSpriteNode
         var snake: Snake
         var index: Int
@@ -66,14 +59,6 @@ class Snake {
             }
         }
         
-        func previousPart() -> SnakePart? {
-            if let part = snake.body[safe: index - 1] {
-                return part
-            } else {
-                return nil
-            }
-        }
-        
         func moveIn(direction d: Direction) {
             self.direction = d
             let timeRefresh = 1.0 / Double(Snake.snakeSpeed)
@@ -90,7 +75,6 @@ class Snake {
                 next.node.removeAllActions()
                 next.direction = nil
                 next.node.run(nodeMove, completion: { [weak self] in
-//                    TODO: Check reference leaks of self!
                     if let d = self?.direction {
                         next.direction = d
                         next.moveIn(direction: d)
@@ -99,20 +83,11 @@ class Snake {
                 })
             }
         }
-        
     }
     
     enum RotationDirection: Int {
         case left = -1
         case right = 1
-    }
-    
-    
-    func distanceBetween(a: CGPoint, b: CGPoint) -> Double {
-        let distX = Double(a.x - b.x)
-        let distY = Double(a.y - b.y)
-        
-        return sqrt(distX*distX + distY*distY)
     }
     
     func moveSnake(direction: Direction) {
@@ -136,7 +111,6 @@ class Snake {
         body.forEach { sp in
             scene.addChild(sp.node)
         }
-
         moveSnake(direction: directions.first!)
     }
     
@@ -148,7 +122,6 @@ class Snake {
             currentDirectionIndex = newIndex
         }
         let newDirection = directions[currentDirectionIndex]
-        print(newDirection.name)
         moveSnake(direction: newDirection)
     }
 }

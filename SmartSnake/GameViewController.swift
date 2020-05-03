@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  SmartSnake
-//
-//  Created by theo on 26/04/2020.
-//  Copyright © 2020 blopz. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 import GameplayKit

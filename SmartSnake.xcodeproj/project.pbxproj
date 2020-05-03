@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4316CC1245F7ACF00890537 /* RetryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CC0245F7ACF00890537 /* RetryScene.swift */; };
 		E4316CC3245F7C4100890537 /* RetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CC2245F7C4100890537 /* RetryViewController.swift */; };
+		E4316CC7245F893100890537 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4316CC6245F893100890537 /* Colors.xcassets */; };
 		E488EB9C24561E99002E1295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EB9B24561E99002E1295 /* AppDelegate.swift */; };
 		E488EBA224561E99002E1295 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBA124561E99002E1295 /* GameScene.swift */; };
 		E488EBA424561E99002E1295 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBA324561E99002E1295 /* GameViewController.swift */; };
@@ -31,8 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E4316CC0245F7ACF00890537 /* RetryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryScene.swift; sourceTree = "<group>"; };
 		E4316CC2245F7C4100890537 /* RetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryViewController.swift; sourceTree = "<group>"; };
+		E4316CC6245F893100890537 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E488EB9824561E99002E1295 /* SmartSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E488EB9B24561E99002E1295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E488EBA124561E99002E1295 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -92,9 +92,9 @@
 				E4AEA121245B6F88008F0B1C /* Snake.swift */,
 				E488EBA324561E99002E1295 /* GameViewController.swift */,
 				E4316CC2245F7C4100890537 /* RetryViewController.swift */,
-				E4316CC0245F7ACF00890537 /* RetryScene.swift */,
 				E488EBA524561E99002E1295 /* Main.storyboard */,
 				E488EBA824561E9B002E1295 /* Assets.xcassets */,
+				E4316CC6245F893100890537 /* Colors.xcassets */,
 				E488EBAA24561E9B002E1295 /* LaunchScreen.storyboard */,
 				E488EBAD24561E9B002E1295 /* Info.plist */,
 				E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */,
@@ -193,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E488EBA724561E99002E1295 /* Main.storyboard in Resources */,
+				E4316CC7245F893100890537 /* Colors.xcassets in Resources */,
 				E488EBA924561E9B002E1295 /* Assets.xcassets in Resources */,
 				E488EBAC24561E9B002E1295 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -214,7 +215,6 @@
 			files = (
 				E4316CC3245F7C4100890537 /* RetryViewController.swift in Sources */,
 				E4AEA122245B6F88008F0B1C /* Snake.swift in Sources */,
-				E4316CC1245F7ACF00890537 /* RetryScene.swift in Sources */,
 				E488EBA224561E99002E1295 /* GameScene.swift in Sources */,
 				E4E1AFBD245C61B300D571C5 /* Array+subscript.swift in Sources */,
 				E488EBA424561E99002E1295 /* GameViewController.swift in Sources */,

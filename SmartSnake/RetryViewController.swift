@@ -1,11 +1,3 @@
-//
-//  RetryViewController.swift
-//  SmartSnake
-//
-//  Created by theo on 04/05/2020.
-//  Copyright © 2020 blopz. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

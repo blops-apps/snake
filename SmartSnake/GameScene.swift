@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  SmartSnake
-//
-//  Created by theo on 26/04/2020.
-//  Copyright © 2020 blopz. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
@@ -20,8 +12,6 @@ class GameScene: SKScene {
             callback()
             onFailure = nil
         }
-//        let retryScene = RetryScene(size: size, won: false)
-//        self.view?.presentScene(retryScene)
     }
     
     init(size: CGSize, onFailure: @escaping () -> Void) {
@@ -62,7 +52,7 @@ class GameScene: SKScene {
     }
     
     func addRedzone(size: CGSize, position: CGPoint) {
-        let node = SKSpriteNode(color: .red, size: size)
+        let node = SKSpriteNode(color: UIColor(named: "LightGrey")!, size: size)
         node.physicsBody = SKPhysicsBody(rectangleOf: size)
         node.physicsBody?.isDynamic = true
         node.physicsBody?.categoryBitMask = PhysicsCategory.walls
