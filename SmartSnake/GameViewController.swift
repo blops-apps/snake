@@ -14,18 +14,30 @@ class GameViewController: UIViewController {
     
     var scene: GameScene? = nil
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if let view = self.view as! SKView? {
-            scene = GameScene(size: view.bounds.size)
+            scene = GameScene(size: view.bounds.size, onFailure: { [weak self] in
+                self?.gameDidFail()
+            })
             scene?.start()
             
             view.ignoresSiblingOrder = true
             view.presentScene(scene)
             view.showsFPS = true
-            view.showsNodeCount = true
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    func gameDidFail() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "retryVC") as! RetryViewController
+
+        newViewController.modalPresentationStyle = .overCurrentContext
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -43,7 +55,7 @@ class GameViewController: UIViewController {
     }
     
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

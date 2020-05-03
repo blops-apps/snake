@@ -89,9 +89,9 @@ class Snake {
                 let nodeMove = SKAction.move(to: targetPosition, duration: 25 / Double(Snake.snakeSpeed))
                 next.node.removeAllActions()
                 next.direction = nil
-                next.node.run(nodeMove, completion: {
+                next.node.run(nodeMove, completion: { [weak self] in
 //                    TODO: Check reference leaks of self!
-                    if let d = self.direction {
+                    if let d = self?.direction {
                         next.direction = d
                         next.moveIn(direction: d)
                     }

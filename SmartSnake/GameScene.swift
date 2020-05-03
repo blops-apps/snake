@@ -12,9 +12,25 @@ import GameplayKit
 class GameScene: SKScene {
     
     let snake = Snake()
+
+    var onFailure: (() -> Void)? = nil
     
     func collision() {
-        fatalError("Yeaahh")
+        if let callback = onFailure {
+            callback()
+            onFailure = nil
+        }
+//        let retryScene = RetryScene(size: size, won: false)
+//        self.view?.presentScene(retryScene)
+    }
+    
+    init(size: CGSize, onFailure: @escaping () -> Void) {
+        self.onFailure = onFailure
+        super.init(size: size)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func start() {
@@ -88,7 +104,7 @@ extension GameScene: SKPhysicsContactDelegate {
             (secondBody.categoryBitMask & PhysicsCategory.walls != 0)) {
             if let snake = firstBody.node as? SKSpriteNode,
                 let projectile = secondBody.node as? SKSpriteNode {
-                touchedLeft()
+                collision()
             }
         }
     }
