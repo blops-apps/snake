@@ -9,6 +9,14 @@
 import Foundation
 import SpriteKit
 
+struct PhysicsCategory {
+    static let none      : UInt32 = 0
+    static let all       : UInt32 = UInt32.max
+    static let snake   : UInt32 = 0b1
+    static let walls: UInt32 = 0b10
+    static let apples: UInt32 = 0b11
+}
+
 class Snake {
    
     static var snakeSpeed: Int = 100
@@ -90,9 +98,13 @@ class Snake {
     
     func start(scene: SKScene) {
         body.forEach { sp in
-            let nodePhysic = SKPhysicsBody(circleOfRadius: sp.node.size.width)
-            nodePhysic.isDynamic = false
+            let nodePhysic = SKPhysicsBody(rectangleOf: sp.node.size)
+            nodePhysic.isDynamic = true
             nodePhysic.usesPreciseCollisionDetection = false
+            nodePhysic.categoryBitMask = PhysicsCategory.snake
+            nodePhysic.contactTestBitMask = PhysicsCategory.walls
+            nodePhysic.collisionBitMask = PhysicsCategory.none
+            
             sp.node.physicsBody = nodePhysic
             
             scene.addChild(sp.node)
