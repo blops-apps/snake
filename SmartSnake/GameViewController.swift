@@ -12,20 +12,17 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    let snake = Snake()
+    var scene: GameScene? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            let scene = SKScene(size: view.bounds.size)
-            scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            scene.backgroundColor = UIColor.white
+            scene = GameScene(size: view.bounds.size)
+            scene?.start()
+            
             view.ignoresSiblingOrder = true
             view.presentScene(scene)
-            
-            snake.start(scene: scene)
-            
             view.showsFPS = true
             view.showsNodeCount = true
         }
@@ -37,26 +34,14 @@ class GameViewController: UIViewController {
             let location = touch.location(in: self.view)
             
             if(location.x < self.view.frame.size.width / 2){
-                snake.changeSnakeDirection(direction: .left)
+                scene?.touchedLeft()
             }
             else {
-                snake.changeSnakeDirection(direction: .right)
+                scene?.touchedRight()
             }
         }
     }
     
-
-    
-//
-//
-//    func addApple(scene: SKScene) {
-//        let size  = CGSize(width: 20, height: 20)
-//        let apple = SKSpriteNode(color: UIColor.red, size: size)
-//        apple.position = CGPoint(x: 200, y: 1)
-//        scene.addChild(apple)
-//    }
-//
-
     override var shouldAutorotate: Bool {
         return true
     }

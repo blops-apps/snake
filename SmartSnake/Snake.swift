@@ -81,7 +81,7 @@ class Snake {
 //        head.node.removeAction(forKey: "move")
         head.node.run(SKAction.repeatForever(move), withKey: "move")
         let p = head.node.position
-        let moveTail = SKAction.move(to: p, duration: 20 / Double(Snake.snakeSpeed))
+        let moveTail = SKAction.move(to: p, duration: 25 / Double(Snake.snakeSpeed))
         tail.node.removeAllActions()
         tail.node.run(moveTail, completion: {
             self.tail.node.run(SKAction.repeatForever(move), withKey: "move")
@@ -90,6 +90,11 @@ class Snake {
     
     func start(scene: SKScene) {
         body.forEach { sp in
+            let nodePhysic = SKPhysicsBody(circleOfRadius: sp.node.size.width)
+            nodePhysic.isDynamic = false
+            nodePhysic.usesPreciseCollisionDetection = false
+            sp.node.physicsBody = nodePhysic
+            
             scene.addChild(sp.node)
         }
 
