@@ -27,18 +27,26 @@ class GameScene: SKScene {
         
         snake.start(scene: self)
         
-        let redzoneSize = CGSize(width: 10, height: size.height)
-        let redzone = SKSpriteNode(color: .red, size: redzoneSize)
-        redzone.physicsBody = SKPhysicsBody(rectangleOf: redzoneSize)
-        redzone.physicsBody?.isDynamic = true
-        redzone.physicsBody?.categoryBitMask = PhysicsCategory.walls
-        redzone.physicsBody?.contactTestBitMask = PhysicsCategory.snake
-        redzone.physicsBody?.collisionBitMask = PhysicsCategory.none
-        redzone.physicsBody?.usesPreciseCollisionDetection = true
+        addRedzone(size: CGSize(width: 10, height: size.height),
+                   position: CGPoint(x: size.width / 2 - 10, y: 0)
+        )
         
-        redzone.position = CGPoint(x: size.width / 2 - 10, y: 0)
-        addChild(redzone)
+        addRedzone(size: CGSize(width: 10, height: size.height),
+                   position: CGPoint(x: -(size.width / 2 - 10), y: 0)
+        )
         
+    }
+    
+    func addRedzone(size: CGSize, position: CGPoint) {
+        let node = SKSpriteNode(color: .red, size: size)
+        node.physicsBody = SKPhysicsBody(rectangleOf: size)
+        node.physicsBody?.isDynamic = true
+        node.physicsBody?.categoryBitMask = PhysicsCategory.walls
+        node.physicsBody?.contactTestBitMask = PhysicsCategory.snake
+        node.physicsBody?.collisionBitMask = PhysicsCategory.none
+        node.physicsBody?.usesPreciseCollisionDetection = true
+        node.position = position
+        addChild(node)
     }
     
     func touchedLeft() {
@@ -72,7 +80,7 @@ extension GameScene: SKPhysicsContactDelegate {
             (secondBody.categoryBitMask & PhysicsCategory.walls != 0)) {
             if let snake = firstBody.node as? SKSpriteNode,
                 let projectile = secondBody.node as? SKSpriteNode {
-                collision()
+                touchedLeft()
             }
         }
     }

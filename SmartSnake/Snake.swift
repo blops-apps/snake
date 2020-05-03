@@ -19,7 +19,7 @@ struct PhysicsCategory {
 
 class Snake {
    
-    static var snakeSpeed: Int = 100
+    static var snakeSpeed: Int = 200
 
     typealias Direction = (x: Int, y: Int, name: String)
 
@@ -43,17 +43,18 @@ class Snake {
         }
     }
 
-    func next(part: SnakePart) -> SnakePart? {
-        let nextIndex = part.index + 1
-        return body[safe: nextIndex]
-    }
+//    func next(part: SnakePart) -> SnakePart? {
+//        let nextIndex = part.index + 1
+//        return body[safe: nextIndex]
+//    }
 
     struct SnakePart {
         var node: SKSpriteNode
-        var index: Int
-        var destination: CGPoint? = nil
 
-
+        init(color: UIColor) {
+            self.node = SKSpriteNode(color: .green, size: CGSize(width: 20, height: 20))
+        }
+        
 
     }
     
@@ -62,17 +63,9 @@ class Snake {
         case right = 1
     }
     
-    static func headNode() -> SKSpriteNode {
-        return SKSpriteNode(color: .green, size: CGSize(width: 20, height: 20))
-    }
-    
-    static func bodyNode() -> SKSpriteNode {
-        return SKSpriteNode(color: .blue, size: CGSize(width: 20, height: 20))
-    }
-    
     var body: [SnakePart] = [
-        SnakePart(node: headNode(), index: 0, destination: nil),
-        SnakePart(node: bodyNode(), index: 1, destination: nil)
+        SnakePart(color: .green),
+        SnakePart(color: .blue)
     ]
     
     func distanceBetween(a: CGPoint, b: CGPoint) -> Double {
