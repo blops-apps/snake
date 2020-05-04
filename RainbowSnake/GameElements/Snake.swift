@@ -27,26 +27,21 @@ class Snake {
         case down
     }
     
-    typealias Direction = (x: Int, y: Int, name: DirectionName)
+    typealias Direction = (x: Int, y: Int)
     
     var body: [SnakePart] = []
     
     let directions: [Direction] = [
-        (x: 1, y: 0, .right),
-        (x: 0, y: -1, .down),
-        (x: -1, y: 0, .left),
-        (x: 0, y: 1, .up)
+        (x: 1, y: 0),
+        (x: 0, y: -1),
+        (x: -1, y: 0),
+        (x: 0, y: 1)
     ]
+
     var currentDirectionIndex = 0
-    
-    var currentDirection: DirectionName {
-        return directions[currentDirectionIndex].name
-    }
-    
+
     var head: SnakePart {
-        get {
-            return body.first!
-        }
+        return body.first!
     }
 
     class SnakePart {

@@ -35,19 +35,11 @@ class GameScene: SKScene {
     }
     
     func touchedLeft() {
-        if snake.currentDirection == .down {
-            snake.changeSnakeDirection(direction: .right)
-        } else {
-            snake.changeSnakeDirection(direction: .left)
-        }
+        snake.changeSnakeDirection(direction: .left)
     }
     
     func touchedRight() {
-        if snake.currentDirection == .down {
-            snake.changeSnakeDirection(direction: .left)
-        } else {
-            snake.changeSnakeDirection(direction: .right)
-        }
+        snake.changeSnakeDirection(direction: .right)
     }
     
 }
