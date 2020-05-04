@@ -11,7 +11,20 @@ struct PhysicsCategory {
 
 class Snake {
    
-    static var snakeSpeed: Int = 100
+    let colors: [UIColor] = [
+        .green,
+        .blue,
+        .purple,
+        .red,
+        .orange,
+        .yellow
+    ]
+    var lastColorIndex = 0
+    
+    static let partSize = 12
+    static let partSpace = 5
+    
+    static var snakeSpeed: Int = 150
 
     typealias Direction = (x: Int, y: Int, name: String)
     var body: [SnakePart] = []
@@ -32,7 +45,7 @@ class Snake {
 
     class SnakePart {
         
-        var node: SKSpriteNode
+        var node: SKNode
         var snake: Snake
         var index: Int
         var direction: Direction? = nil
@@ -40,15 +53,30 @@ class Snake {
         init(color: UIColor, index: Int, snake: Snake) {
             self.index = index
             self.snake = snake
-            let newNode = SKSpriteNode(color: color, size: CGSize(width: 20, height: 20))
-            let nodePhysic = SKPhysicsBody(rectangleOf: newNode.size)
+
+            let newNode = SKShapeNode(circleOfRadius: CGFloat(Snake.partSize))
+            newNode.fillColor = color
+            newNode.lineWidth = 0
+            let nodePhysic = SKPhysicsBody(circleOfRadius:  CGFloat(Snake.partSize))
             nodePhysic.isDynamic = true
-            nodePhysic.usesPreciseCollisionDetection = false
+            nodePhysic.usesPreciseCollisionDetection = true
             nodePhysic.categoryBitMask = PhysicsCategory.snake
             nodePhysic.contactTestBitMask = PhysicsCategory.walls
             nodePhysic.collisionBitMask = PhysicsCategory.none
             newNode.physicsBody = nodePhysic
             self.node = newNode
+            
+            if let p = previousPart() {
+                node.position = p.node.position
+            }
+        }
+    
+        func previousPart() -> SnakePart? {
+            if let part = snake.body[safe: index - 1] {
+                return part
+            } else {
+                return nil
+            }
         }
         
         func nextPart() -> SnakePart? {
@@ -71,7 +99,7 @@ class Snake {
         func pullNext() {
             if let next = nextPart() {
                 let targetPosition = node.position
-                let nodeMove = SKAction.move(to: targetPosition, duration: 25 / Double(Snake.snakeSpeed))
+                let nodeMove = SKAction.move(to: targetPosition, duration: Double(Snake.partSize + Snake.partSpace) / Double(Snake.snakeSpeed))
                 next.node.removeAllActions()
                 next.direction = nil
                 next.node.run(nodeMove, completion: { [weak self] in
@@ -95,21 +123,18 @@ class Snake {
         head.pullNext()
     }
     
-    func addPart(color: UIColor) {
+    func addPart(scene: SKScene) {
+        let color = colors[lastColorIndex % colors.count]
+        lastColorIndex += 1
         let newPart = SnakePart(color: color, index: body.count, snake: self)
         body.append(newPart)
+        scene.addChild(newPart.node)
     }
     
+    
     func start(scene: SKScene) {
-        addPart(color: .green)
-        addPart(color: .blue)
-        addPart(color: .red)
-        addPart(color: .green)
-        addPart(color: .blue)
-        addPart(color: .red)
-        
-        body.forEach { sp in
-            scene.addChild(sp.node)
+        for _ in 0...40 {
+            addPart(scene: scene)
         }
         moveSnake(direction: directions.first!)
     }

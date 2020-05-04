@@ -12,11 +12,13 @@ class GameScene: SKScene {
             callback()
             onFailure = nil
         }
+        
     }
     
     init(size: CGSize, onFailure: @escaping () -> Void) {
         self.onFailure = onFailure
         super.init(size: size)
+        backgroundColor = UIColor(named: "GameBackground")!
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -26,7 +28,6 @@ class GameScene: SKScene {
     func start() {
         
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        backgroundColor = UIColor.white
         
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
@@ -71,14 +72,12 @@ class GameScene: SKScene {
         snake.changeSnakeDirection(direction: .right)
     }
     
-    
 }
 
 
 extension GameScene: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
-        // 1
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -89,11 +88,10 @@ extension GameScene: SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        // 2
         if ((firstBody.categoryBitMask & PhysicsCategory.snake != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.walls != 0)) {
-            if let snake = firstBody.node as? SKSpriteNode,
-                let projectile = secondBody.node as? SKSpriteNode {
+            if let snake = firstBody.node as? SKNode,
+                let wall = secondBody.node as? SKNode {
                 collision()
             }
         }
