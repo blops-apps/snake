@@ -4,13 +4,14 @@ import SpriteKit
 class Snake {
 
     let colors: [UIColor] = [
-        .green,
-        .blue,
-        .purple,
-        .red,
+        .yellow,
         .orange,
-        .yellow
+        .red,
+        .purple,
+        .blue,
+        .green
     ]
+    
     var lastColorIndex = 0
     
     static let partSize = 12
@@ -19,16 +20,28 @@ class Snake {
     var snakeSpeed: Int = 150
     static let snakeSpeedIncrement: Int = 10
 
-    typealias Direction = (x: Int, y: Int, name: String)
+    enum DirectionName {
+        case left
+        case right
+        case up
+        case down
+    }
+    
+    typealias Direction = (x: Int, y: Int, name: DirectionName)
+    
     var body: [SnakePart] = []
     
     let directions: [Direction] = [
-        (x: 1, y: 0, name: "right"),
-        (x: 0, y: -1, name: "down"),
-        (x: -1, y: 0, name: "left"),
-        (x: 0, y: 1, name: "up")
+        (x: 1, y: 0, .right),
+        (x: 0, y: -1, .down),
+        (x: -1, y: 0, .left),
+        (x: 0, y: 1, .up)
     ]
     var currentDirectionIndex = 0
+    
+    var currentDirection: DirectionName {
+        return directions[currentDirectionIndex].name
+    }
     
     var head: SnakePart {
         get {
