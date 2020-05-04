@@ -1,15 +1,15 @@
 //
-//  SmartSnakeTests.swift
-//  SmartSnakeTests
+//  RainbowSnakeTests.swift
+//  RainbowSnakeTests
 //
 //  Created by theo on 26/04/2020.
 //  Copyright © 2020 blopz. All rights reserved.
 //
 
 import XCTest
-@testable import SmartSnake
+@testable import RainbowSnake
 
-class SmartSnakeTests: XCTestCase {
+class RainbowSnakeTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

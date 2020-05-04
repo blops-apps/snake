@@ -19,7 +19,7 @@
 		E488EBA724561E99002E1295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E488EBA524561E99002E1295 /* Main.storyboard */; };
 		E488EBA924561E9B002E1295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E488EBA824561E9B002E1295 /* Assets.xcassets */; };
 		E488EBAC24561E9B002E1295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E488EBAA24561E9B002E1295 /* LaunchScreen.storyboard */; };
-		E488EBB724561E9B002E1295 /* SmartSnakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBB624561E9B002E1295 /* SmartSnakeTests.swift */; };
+		E488EBB724561E9B002E1295 /* RainbowSnakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBB624561E9B002E1295 /* RainbowSnakeTests.swift */; };
 		E4AEA122245B6F88008F0B1C /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AEA121245B6F88008F0B1C /* Snake.swift */; };
 		E4E1AFBD245C61B300D571C5 /* Array+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +30,7 @@
 			containerPortal = E488EB9024561E99002E1295 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E488EB9724561E99002E1295;
-			remoteInfo = SmartSnake;
+			remoteInfo = RainbowSnake;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -41,7 +41,7 @@
 		E4316CCA246014A900890537 /* GamePhysicsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePhysicsFactory.swift; sourceTree = "<group>"; };
 		E4316CCC24601B9E00890537 /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 		E4316CCE24601D2D00890537 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
-		E488EB9824561E99002E1295 /* SmartSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E488EB9824561E99002E1295 /* RainbowSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E488EB9B24561E99002E1295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E488EBA124561E99002E1295 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		E488EBA324561E99002E1295 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -49,8 +49,8 @@
 		E488EBA824561E9B002E1295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E488EBAB24561E9B002E1295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E488EBAD24561E9B002E1295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E488EBB224561E9B002E1295 /* SmartSnakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartSnakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E488EBB624561E9B002E1295 /* SmartSnakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSnakeTests.swift; sourceTree = "<group>"; };
+		E488EBB224561E9B002E1295 /* RainbowSnakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowSnakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E488EBB624561E9B002E1295 /* RainbowSnakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowSnakeTests.swift; sourceTree = "<group>"; };
 		E488EBB824561E9B002E1295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4AEA121245B6F88008F0B1C /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+subscript.swift"; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		E488EB8F24561E99002E1295 = {
 			isa = PBXGroup;
 			children = (
-				E488EB9A24561E99002E1295 /* SmartSnake */,
-				E488EBB524561E9B002E1295 /* SmartSnakeTests */,
+				E488EB9A24561E99002E1295 /* RainbowSnake */,
+				E488EBB524561E9B002E1295 /* RainbowSnakeTests */,
 				E488EB9924561E99002E1295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,13 +99,13 @@
 		E488EB9924561E99002E1295 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E488EB9824561E99002E1295 /* SmartSnake.app */,
-				E488EBB224561E9B002E1295 /* SmartSnakeTests.xctest */,
+				E488EB9824561E99002E1295 /* RainbowSnake.app */,
+				E488EBB224561E9B002E1295 /* RainbowSnakeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E488EB9A24561E99002E1295 /* SmartSnake */ = {
+		E488EB9A24561E99002E1295 /* RainbowSnake */ = {
 			isa = PBXGroup;
 			children = (
 				E4316CD024601F9B00890537 /* GameElements */,
@@ -119,24 +119,24 @@
 				E488EBAD24561E9B002E1295 /* Info.plist */,
 				E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */,
 			);
-			path = SmartSnake;
+			path = RainbowSnake;
 			sourceTree = "<group>";
 		};
-		E488EBB524561E9B002E1295 /* SmartSnakeTests */ = {
+		E488EBB524561E9B002E1295 /* RainbowSnakeTests */ = {
 			isa = PBXGroup;
 			children = (
-				E488EBB624561E9B002E1295 /* SmartSnakeTests.swift */,
+				E488EBB624561E9B002E1295 /* RainbowSnakeTests.swift */,
 				E488EBB824561E9B002E1295 /* Info.plist */,
 			);
-			path = SmartSnakeTests;
+			path = RainbowSnakeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E488EB9724561E99002E1295 /* SmartSnake */ = {
+		E488EB9724561E99002E1295 /* RainbowSnake */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E488EBBB24561E9B002E1295 /* Build configuration list for PBXNativeTarget "SmartSnake" */;
+			buildConfigurationList = E488EBBB24561E9B002E1295 /* Build configuration list for PBXNativeTarget "RainbowSnake" */;
 			buildPhases = (
 				E488EB9424561E99002E1295 /* Sources */,
 				E488EB9524561E99002E1295 /* Frameworks */,
@@ -146,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = SmartSnake;
-			productName = SmartSnake;
-			productReference = E488EB9824561E99002E1295 /* SmartSnake.app */;
+			name = RainbowSnake;
+			productName = RainbowSnake;
+			productReference = E488EB9824561E99002E1295 /* RainbowSnake.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E488EBB124561E9B002E1295 /* SmartSnakeTests */ = {
+		E488EBB124561E9B002E1295 /* RainbowSnakeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E488EBBE24561E9B002E1295 /* Build configuration list for PBXNativeTarget "SmartSnakeTests" */;
+			buildConfigurationList = E488EBBE24561E9B002E1295 /* Build configuration list for PBXNativeTarget "RainbowSnakeTests" */;
 			buildPhases = (
 				E488EBAE24561E9B002E1295 /* Sources */,
 				E488EBAF24561E9B002E1295 /* Frameworks */,
@@ -164,9 +164,9 @@
 			dependencies = (
 				E488EBB424561E9B002E1295 /* PBXTargetDependency */,
 			);
-			name = SmartSnakeTests;
-			productName = SmartSnakeTests;
-			productReference = E488EBB224561E9B002E1295 /* SmartSnakeTests.xctest */;
+			name = RainbowSnakeTests;
+			productName = RainbowSnakeTests;
+			productReference = E488EBB224561E9B002E1295 /* RainbowSnakeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -188,7 +188,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E488EB9324561E99002E1295 /* Build configuration list for PBXProject "SmartSnake" */;
+			buildConfigurationList = E488EB9324561E99002E1295 /* Build configuration list for PBXProject "RainbowSnake" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -201,8 +201,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E488EB9724561E99002E1295 /* SmartSnake */,
-				E488EBB124561E9B002E1295 /* SmartSnakeTests */,
+				E488EB9724561E99002E1295 /* RainbowSnake */,
+				E488EBB124561E9B002E1295 /* RainbowSnakeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E488EBB724561E9B002E1295 /* SmartSnakeTests.swift in Sources */,
+				E488EBB724561E9B002E1295 /* RainbowSnakeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +259,7 @@
 /* Begin PBXTargetDependency section */
 		E488EBB424561E9B002E1295 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E488EB9724561E99002E1295 /* SmartSnake */;
+			target = E488EB9724561E99002E1295 /* RainbowSnake */;
 			targetProxy = E488EBB324561E9B002E1295 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -405,12 +405,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SmartSnake/Info.plist;
+				DEVELOPMENT_TEAM = 364F6TR723;
+				INFOPLIST_FILE = RainbowSnake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = blopz.SmartSnake;
+				PRODUCT_BUNDLE_IDENTIFIER = blops.RainbowSnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -422,12 +423,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SmartSnake/Info.plist;
+				DEVELOPMENT_TEAM = 364F6TR723;
+				INFOPLIST_FILE = RainbowSnake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = blopz.SmartSnake;
+				PRODUCT_BUNDLE_IDENTIFIER = blops.RainbowSnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,17 +442,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SmartSnakeTests/Info.plist;
+				INFOPLIST_FILE = RainbowSnakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = blopz.SmartSnakeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = blopz.RainbowSnakeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSnake.app/SmartSnake";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RainbowSnake.app/RainbowSnake";
 			};
 			name = Debug;
 		};
@@ -460,24 +462,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SmartSnakeTests/Info.plist;
+				INFOPLIST_FILE = RainbowSnakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = blopz.SmartSnakeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = blopz.RainbowSnakeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSnake.app/SmartSnake";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RainbowSnake.app/RainbowSnake";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E488EB9324561E99002E1295 /* Build configuration list for PBXProject "SmartSnake" */ = {
+		E488EB9324561E99002E1295 /* Build configuration list for PBXProject "RainbowSnake" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E488EBB924561E9B002E1295 /* Debug */,
@@ -486,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E488EBBB24561E9B002E1295 /* Build configuration list for PBXNativeTarget "SmartSnake" */ = {
+		E488EBBB24561E9B002E1295 /* Build configuration list for PBXNativeTarget "RainbowSnake" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E488EBBC24561E9B002E1295 /* Debug */,
@@ -495,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E488EBBE24561E9B002E1295 /* Build configuration list for PBXNativeTarget "SmartSnakeTests" */ = {
+		E488EBBE24561E9B002E1295 /* Build configuration list for PBXNativeTarget "RainbowSnakeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E488EBBF24561E9B002E1295 /* Debug */,
