@@ -16,8 +16,20 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+  desc "Pushes to Firebase App Distribution"
+  lane :distribute do
+    build_ios_app(
+      output_directory: "build",
+      output_name: "rainbowSnake.ipa",
+      export_options: {
+        method: "development"
+      }
+    )
+    firebase_app_distribution(
+      app: ENV.fetch("FIREBASE_APP_ID"),
+      testers: "theo.carrive@gmail.com",
+      release_notes: "Hello you!",
+    )
+
   end
 end

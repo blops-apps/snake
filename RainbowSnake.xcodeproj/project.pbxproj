@@ -181,9 +181,11 @@
 				TargetAttributes = {
 					E488EB9724561E99002E1295 = {
 						CreatedOnToolsVersion = 10.3;
+						ProvisioningStyle = Automatic;
 					};
 					E488EBB124561E9B002E1295 = {
 						CreatedOnToolsVersion = 10.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = E488EB9724561E99002E1295;
 					};
 				};

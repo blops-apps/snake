@@ -1,0 +1,14 @@
+git_url(ENV.fetch("CERTIFICATES_REPO"))
+
+storage_mode("git")
+
+type("development") # The default type, can be: appstore, adhoc, enterprise or development
+
+team_id ENV.fetch("APPLE_TEAM_ID")
+username ENV.fetch("APPLE_ID")
+force_for_new_devices true
+
+# For all available options run `fastlane match --help`
+# Remove the # in the beginning of the line to enable the other options
+
+# The docs are available on https://docs.fastlane.tools/actions/match
