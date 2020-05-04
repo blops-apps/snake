@@ -16,8 +16,8 @@ class Snake {
     static let partSize = 12
     static let partSpace = 5
     
-    var snakeSpeed: Int = 200
-    static let snakeSpeedIncrement: Int = 50
+    var snakeSpeed: Int = 150
+    static let snakeSpeedIncrement: Int = 10
 
     typealias Direction = (x: Int, y: Int, name: String)
     var body: [SnakePart] = []

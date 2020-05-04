@@ -13,6 +13,7 @@
 		E4316CCB246014A900890537 /* GamePhysicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CCA246014A900890537 /* GamePhysicsFactory.swift */; };
 		E4316CCD24601B9E00890537 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CCC24601B9E00890537 /* Apple.swift */; };
 		E4316CCF24601D2D00890537 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CCE24601D2D00890537 /* Wall.swift */; };
+		E46FBF872460C35B00CFBB4D /* ScoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FBF862460C35B00CFBB4D /* ScoreRepository.swift */; };
 		E488EB9C24561E99002E1295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EB9B24561E99002E1295 /* AppDelegate.swift */; };
 		E488EBA224561E99002E1295 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBA124561E99002E1295 /* GameScene.swift */; };
 		E488EBA424561E99002E1295 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488EBA324561E99002E1295 /* GameViewController.swift */; };
@@ -41,6 +42,7 @@
 		E4316CCA246014A900890537 /* GamePhysicsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePhysicsFactory.swift; sourceTree = "<group>"; };
 		E4316CCC24601B9E00890537 /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 		E4316CCE24601D2D00890537 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		E46FBF862460C35B00CFBB4D /* ScoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRepository.swift; sourceTree = "<group>"; };
 		E488EB9824561E99002E1295 /* RainbowSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E488EB9B24561E99002E1295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E488EBA124561E99002E1295 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				E488EBAA24561E9B002E1295 /* LaunchScreen.storyboard */,
 				E488EBAD24561E9B002E1295 /* Info.plist */,
 				E4E1AFBC245C61B300D571C5 /* Array+subscript.swift */,
+				E46FBF862460C35B00CFBB4D /* ScoreRepository.swift */,
 			);
 			path = RainbowSnake;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46FBF872460C35B00CFBB4D /* ScoreRepository.swift in Sources */,
 				E4316CCD24601B9E00890537 /* Apple.swift in Sources */,
 				E4316CC3245F7C4100890537 /* RetryViewController.swift in Sources */,
 				E4316CCB246014A900890537 /* GamePhysicsFactory.swift in Sources */,

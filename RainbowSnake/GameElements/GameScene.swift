@@ -2,23 +2,23 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
+
     let snake = Snake()
 
-    var onFailure: (() -> Void)? = nil
-    
-    init(size: CGSize, onFailure: @escaping () -> Void) {
+    var score: Int = 0
+    var onFailure: ((Int) -> Void)? = nil
+
+    init(size: CGSize, onFailure: @escaping (Int) -> Void) {
         self.onFailure = onFailure
         super.init(size: size)
         backgroundColor = UIColor(named: "GameBackground")!
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func start() {
-        
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         physicsWorld.gravity = .zero
@@ -45,22 +45,24 @@ class GameScene: SKScene {
 }
 
 extension GameScene: SKPhysicsContactDelegate {
-    
+
     func wallCollision() {
         snake.freeze()
+        ScoreRepository().save(score: score)
         if let callback = onFailure {
-            callback()
+            callback(score)
             onFailure = nil
         }
     }
-    
+
     func appleCollision(node: SKNode) {
+        score += 1
         node.removeFromParent()
         Apple.spawn(scene: self)
         snake.increaseLength(scene: self)
         snake.increaseSpeed()
     }
-    
+
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody

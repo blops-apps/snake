@@ -13,8 +13,8 @@ class GameViewController: UIViewController {
     
     func reset() {
         if let view = self.view as! SKView? {
-            let newScene = GameScene(size: view.bounds.size, onFailure: { [weak self] in
-                self?.gameDidFail()
+            let newScene = GameScene(size: view.bounds.size, onFailure: { [weak self] score in
+                self?.gameDidFail(score: score)
             })
             newScene.start()
             view.presentScene(newScene)
@@ -29,10 +29,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func gameDidFail() {
+    func gameDidFail(score: Int) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let retryViewController = storyBoard.instantiateViewController(withIdentifier: "retryVC") as! RetryViewController
         retryViewController.gameViewController = self
+        retryViewController.score = score
         retryViewController.modalPresentationStyle = .overCurrentContext
         self.present(retryViewController, animated: true, completion: nil)
     }

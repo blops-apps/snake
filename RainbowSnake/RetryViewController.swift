@@ -4,9 +4,17 @@ import UIKit
 class RetryViewController: UIViewController {
     
     var gameViewController: GameViewController!
+    var score: Int = 0
+    
+    @IBOutlet weak var scoreText: UITextField!
+    @IBOutlet weak var bestScoreText: UITextField!
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor(named: "FailureBackgroundColor")
+        scoreText.text = "\(score)"
+        if let bestScore = ScoreRepository().retrieve() {
+            bestScoreText.text = "\(bestScore)"
+        }
     }
     
     override var shouldAutorotate: Bool {
