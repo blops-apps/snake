@@ -8,12 +8,17 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        reset()
+    }
+    
+    func reset() {
         if let view = self.view as! SKView? {
-            scene = GameScene(size: view.bounds.size, onFailure: { [weak self] in
+            let newScene = GameScene(size: view.bounds.size, onFailure: { [weak self] in
                 self?.gameDidFail()
             })
-            scene?.start()
-            
+            newScene.start()
+            view.presentScene(newScene)
+            scene = newScene
             view.ignoresSiblingOrder = true
             view.presentScene(scene)
             view.showsFPS = true
@@ -26,10 +31,10 @@ class GameViewController: UIViewController {
 
     func gameDidFail() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "retryVC") as! RetryViewController
-
-        newViewController.modalPresentationStyle = .overCurrentContext
-        self.present(newViewController, animated: true, completion: nil)
+        let retryViewController = storyBoard.instantiateViewController(withIdentifier: "retryVC") as! RetryViewController
+        retryViewController.gameViewController = self
+        retryViewController.modalPresentationStyle = .overCurrentContext
+        self.present(retryViewController, animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

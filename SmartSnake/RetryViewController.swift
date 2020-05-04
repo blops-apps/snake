@@ -3,9 +3,10 @@ import UIKit
 
 class RetryViewController: UIViewController {
     
+    var gameViewController: GameViewController!
+    
     override func viewDidLoad() {
-        view.isOpaque = false
-        view.backgroundColor = .clear 
+        view.backgroundColor = UIColor(named: "FailureBackgroundColor")
     }
     
     override var shouldAutorotate: Bool {
@@ -14,8 +15,10 @@ class RetryViewController: UIViewController {
     
     @IBAction func retryTouched(_ sender: Any) {
         self.dismiss(animated: true) {
+            self.gameViewController.reset()
         }
     }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown

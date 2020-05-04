@@ -1,16 +1,8 @@
 import Foundation
 import SpriteKit
 
-struct PhysicsCategory {
-    static let none      : UInt32 = 0
-    static let all       : UInt32 = UInt32.max
-    static let snake   : UInt32 = 0b1
-    static let walls: UInt32 = 0b10
-    static let apples: UInt32 = 0b11
-}
-
 class Snake {
-   
+
     let colors: [UIColor] = [
         .green,
         .blue,
@@ -57,13 +49,8 @@ class Snake {
             let newNode = SKShapeNode(circleOfRadius: CGFloat(Snake.partSize))
             newNode.fillColor = color
             newNode.lineWidth = 0
-            let nodePhysic = SKPhysicsBody(circleOfRadius:  CGFloat(Snake.partSize))
-            nodePhysic.isDynamic = true
-            nodePhysic.usesPreciseCollisionDetection = true
-            nodePhysic.categoryBitMask = PhysicsCategory.snake
-            nodePhysic.contactTestBitMask = PhysicsCategory.walls
-            nodePhysic.collisionBitMask = PhysicsCategory.none
-            newNode.physicsBody = nodePhysic
+            newNode.physicsBody = GamePhysicsFactory.circle(radius: CGFloat(Snake.partSize), category: .snake, testContact: .walls)
+
             self.node = newNode
             
             if let p = previousPart() {
@@ -118,22 +105,33 @@ class Snake {
         case right = 1
     }
     
-    func moveSnake(direction: Direction) {
+    func freeze() {
+        for part in body {
+            part.node.removeAllActions()
+        }
+    }
+    
+    private func moveSnake(direction: Direction) {
         head.moveIn(direction: direction)
         head.pullNext()
     }
     
-    func addPart(scene: SKScene) {
+    func increaseLength(scene: SKScene) {
+        let penultimate = body.last!
+        addPart(scene: scene)
+        penultimate.pullNext()
+    }
+    
+    private func addPart(scene: SKScene) {
         let color = colors[lastColorIndex % colors.count]
         lastColorIndex += 1
         let newPart = SnakePart(color: color, index: body.count, snake: self)
         body.append(newPart)
         scene.addChild(newPart.node)
     }
-    
-    
+
     func start(scene: SKScene) {
-        for _ in 0...40 {
+        for _ in 0...3 {
             addPart(scene: scene)
         }
         moveSnake(direction: directions.first!)
