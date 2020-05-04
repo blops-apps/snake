@@ -58,6 +58,7 @@ extension GameScene: SKPhysicsContactDelegate {
         node.removeFromParent()
         Apple.spawn(scene: self)
         snake.increaseLength(scene: self)
+        snake.increaseSpeed()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

@@ -16,7 +16,8 @@ class Snake {
     static let partSize = 12
     static let partSpace = 5
     
-    static var snakeSpeed: Int = 150
+    var snakeSpeed: Int = 200
+    static let snakeSpeedIncrement: Int = 50
 
     typealias Direction = (x: Int, y: Int, name: String)
     var body: [SnakePart] = []
@@ -76,7 +77,7 @@ class Snake {
         
         func moveIn(direction d: Direction) {
             self.direction = d
-            let timeRefresh = 1.0 / Double(Snake.snakeSpeed)
+            let timeRefresh = 1.0 / Double(snake.snakeSpeed)
             let vector = CGVector(dx: d.x, dy: d.y)
             let move = SKAction.move(by: vector, duration: timeRefresh)
             node.removeAllActions()
@@ -86,7 +87,7 @@ class Snake {
         func pullNext() {
             if let next = nextPart() {
                 let targetPosition = node.position
-                let nodeMove = SKAction.move(to: targetPosition, duration: Double(Snake.partSize + Snake.partSpace) / Double(Snake.snakeSpeed))
+                let nodeMove = SKAction.move(to: targetPosition, duration: Double(Snake.partSize + Snake.partSpace) / Double(snake.snakeSpeed))
                 next.node.removeAllActions()
                 next.direction = nil
                 next.node.run(nodeMove, completion: { [weak self] in
@@ -114,6 +115,10 @@ class Snake {
     private func moveSnake(direction: Direction) {
         head.moveIn(direction: direction)
         head.pullNext()
+    }
+    
+    func increaseSpeed() {
+        snakeSpeed += Snake.snakeSpeedIncrement
     }
     
     func increaseLength(scene: SKScene) {
