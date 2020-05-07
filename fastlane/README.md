@@ -16,11 +16,16 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios distribute
+### ios beta
 ```
-fastlane ios distribute
+fastlane ios beta
 ```
 Pushes to Firebase App Distribution
+### ios release
+```
+fastlane ios release
+```
+
 
 ----
 
