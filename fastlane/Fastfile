@@ -17,7 +17,7 @@ default_platform(:ios)
 
 platform :ios do
   desc "Pushes to Firebase App Distribution"
-  lane :distribute do
+  lane :beta do
     build_ios_app(
       output_directory: "build",
       output_name: "rainbowSnake.ipa",
@@ -30,6 +30,12 @@ platform :ios do
       testers: "theo.carrive@gmail.com",
       release_notes: "Hello you!",
     )
-
   end
+
+  lane :release do
+    sync_code_signing(type: "appstore")
+    build_app(scheme: "RainbowSnake")
+    upload_to_app_store
+  end
+
 end
