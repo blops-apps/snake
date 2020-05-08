@@ -19,22 +19,21 @@ platform :ios do
   desc "Pushes to Firebase App Distribution"
   lane :beta do
     build_ios_app(
-      output_directory: "build",
-      output_name: "rainbowSnake.ipa",
       export_options: {
         method: "development"
       }
     )
     firebase_app_distribution(
       app: ENV.fetch("FIREBASE_APP_ID"),
-      testers: "theo.carrive@gmail.com",
+      testers: ENV.fetch("APPLE_ID"),
       release_notes: "Hello you!",
     )
   end
 
+  desc "Pushes to App Store"
   lane :release do
     sync_code_signing(type: "appstore")
-    build_app(scheme: "RainbowSnake")
+    build_app
     upload_to_app_store
   end
 

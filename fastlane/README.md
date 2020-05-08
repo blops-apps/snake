@@ -25,7 +25,7 @@ Pushes to Firebase App Distribution
 ```
 fastlane ios release
 ```
-
+Pushes to App Store
 
 ----
 

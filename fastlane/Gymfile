@@ -1,0 +1,3 @@
+output_directory("build")
+output_name("rainbowSnake.ipa")
+scheme("RainbowSnake")
