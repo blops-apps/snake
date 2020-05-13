@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,10 +31,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tv7-d1-FVk">
-                                <rect key="frame" x="117" y="545" width="182" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tv7-d1-FVk">
+                                <rect key="frame" x="94" y="545" width="228" height="97"/>
                                 <color key="backgroundColor" red="0.28883131550666646" green="0.23973463399397141" blue="0.43067924222797926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="10H-I3-9lg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="31"/>
                                 <state key="normal" title="Retry">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,40 +45,65 @@
                                     <action selector="retryTouched:" destination="yUX-pu-Bfq" eventType="touchDown" id="m1q-XC-Ga3"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="105" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-HV-ziB">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="105" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-HV-ziB">
                                 <rect key="frame" x="130" y="211" width="154" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="J2b-fG-ohU"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="62"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Best score ever: " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-u3-Oef">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Best score ever: " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-u3-Oef">
                                 <rect key="frame" x="115" y="364" width="184" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="izf-ym-NuP"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="0.38077684859154931" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="105" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FhK-VF-wTg">
-                                <rect key="frame" x="130" y="389" width="154" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="105" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FhK-VF-wTg">
+                                <rect key="frame" x="168.5" y="389" width="77" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="jcQ-il-XWI"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="0.53144256161971826" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-wc-By0">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-wc-By0">
                                 <rect key="frame" x="159" y="182" width="97" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Brt-65-eyO"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gb0-wc-By0" firstAttribute="top" secondItem="ax8-wG-V6m" secondAttribute="top" constant="138" id="2lv-Rd-nXU"/>
+                            <constraint firstItem="ax8-wG-V6m" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Tv7-d1-FVk" secondAttribute="bottom" constant="100" id="445-OO-hZR"/>
+                            <constraint firstItem="FhK-VF-wTg" firstAttribute="top" secondItem="8Ta-u3-Oef" secondAttribute="bottom" constant="-5" id="7Xs-a5-GsZ"/>
+                            <constraint firstItem="VOx-HV-ziB" firstAttribute="leading" secondItem="ax8-wG-V6m" secondAttribute="leading" constant="130" id="7uF-Jb-hTV"/>
+                            <constraint firstItem="8Ta-u3-Oef" firstAttribute="trailing" secondItem="Tv7-d1-FVk" secondAttribute="trailing" id="PK3-cD-LHh"/>
+                            <constraint firstItem="8Ta-u3-Oef" firstAttribute="top" secondItem="VOx-HV-ziB" secondAttribute="bottom" constant="75" id="V9v-6x-0l0"/>
+                            <constraint firstItem="Tv7-d1-FVk" firstAttribute="centerX" secondItem="ax8-wG-V6m" secondAttribute="centerX" id="bqs-oW-sP3"/>
+                            <constraint firstItem="Gb0-wc-By0" firstAttribute="centerX" secondItem="ax8-wG-V6m" secondAttribute="centerX" id="d2U-Vc-qyT"/>
+                            <constraint firstItem="8Ta-u3-Oef" firstAttribute="centerX" secondItem="ax8-wG-V6m" secondAttribute="centerX" id="h8d-ED-0Co"/>
+                            <constraint firstItem="8Ta-u3-Oef" firstAttribute="leading" secondItem="ax8-wG-V6m" secondAttribute="leading" constant="115" id="kFM-rk-KfS"/>
+                            <constraint firstItem="FhK-VF-wTg" firstAttribute="centerX" secondItem="ax8-wG-V6m" secondAttribute="centerX" id="pgQ-U8-ie9"/>
+                            <constraint firstItem="Gb0-wc-By0" firstAttribute="leading" secondItem="ax8-wG-V6m" secondAttribute="leading" constant="159" id="uhz-g1-oZR"/>
+                            <constraint firstItem="FhK-VF-wTg" firstAttribute="top" secondItem="KKu-Cc-z4f" secondAttribute="top" constant="389" id="wih-R9-7Gu"/>
+                            <constraint firstItem="VOx-HV-ziB" firstAttribute="centerX" secondItem="ax8-wG-V6m" secondAttribute="centerX" id="xU3-jz-7D4"/>
+                            <constraint firstItem="VOx-HV-ziB" firstAttribute="top" secondItem="ax8-wG-V6m" secondAttribute="top" constant="167" id="zav-bW-2ri"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ax8-wG-V6m"/>
                     </view>
                     <connections>
