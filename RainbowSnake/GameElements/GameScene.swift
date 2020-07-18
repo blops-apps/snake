@@ -52,6 +52,11 @@ class GameScene: SKScene {
         snake.changeSnakeDirection(direction: .right)
     }
     
+    func impactHapticFeedback() {
+        let generator = UIImpactFeedbackGenerator()
+        generator.impactOccurred()
+    }
+    
 }
 
 extension GameScene: SKPhysicsContactDelegate {
@@ -65,15 +70,14 @@ extension GameScene: SKPhysicsContactDelegate {
         }
     }
 
-    func appleCollision(node: SKNode) {
+    func appleCollision(node: SKSpriteNode) {
         score += 1
-        if let n = node as? SKSpriteNode {
             node.removeFromParent()
             Apple.spawn(scene: self, color: colorFactory.pop())
-            snake.increaseLength(scene: self, color: n.color)
+            snake.increaseLength(scene: self, color: node.color)
             snake.increaseSpeed()
             changeBackgroundColor()
-        }
+            impactHapticFeedback()
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
@@ -91,7 +95,7 @@ extension GameScene: SKPhysicsContactDelegate {
             if secondBody.categoryBitMask == PhysicsCategory.walls.rawValue {
                 wallCollision()
             } else if secondBody.categoryBitMask == PhysicsCategory.apple.rawValue {
-                if let apple = secondBody.node {
+                if let apple = secondBody.node as? SKSpriteNode {
                     appleCollision(node: apple)
                 }
             }
