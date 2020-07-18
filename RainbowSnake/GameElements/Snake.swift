@@ -2,23 +2,12 @@ import Foundation
 import SpriteKit
 
 class Snake {
-
-    let colors: [UIColor] = [
-        .yellow,
-        .orange,
-        .red,
-        .purple,
-        .blue,
-        .green
-    ]
-    
-    var lastColorIndex = 0
     
     static let partSize = 12
     static let partSpace = 5
     
-    var snakeSpeed: Int = 150
-    static let snakeSpeedIncrement: Int = 10
+    var speed: Int = 180
+    static let speedIncrement: Int = 15
 
     enum DirectionName {
         case left
@@ -85,7 +74,7 @@ class Snake {
         
         func moveIn(direction d: Direction) {
             self.direction = d
-            let timeRefresh = 1.0 / Double(snake.snakeSpeed)
+            let timeRefresh = 1.0 / Double(snake.speed)
             let vector = CGVector(dx: d.x, dy: d.y)
             let move = SKAction.move(by: vector, duration: timeRefresh)
             node.removeAllActions()
@@ -95,7 +84,7 @@ class Snake {
         func pullNext() {
             if let next = nextPart() {
                 let targetPosition = node.position
-                let nodeMove = SKAction.move(to: targetPosition, duration: Double(Snake.partSize + Snake.partSpace) / Double(snake.snakeSpeed))
+                let nodeMove = SKAction.move(to: targetPosition, duration: Double(Snake.partSize + Snake.partSpace) / Double(snake.speed))
                 next.node.removeAllActions()
                 next.direction = nil
                 next.node.run(nodeMove, completion: { [weak self] in
@@ -126,26 +115,24 @@ class Snake {
     }
     
     func increaseSpeed() {
-        snakeSpeed += Snake.snakeSpeedIncrement
+        speed += Snake.speedIncrement
     }
     
-    func increaseLength(scene: SKScene) {
+    func increaseLength(scene: SKScene, color: UIColor) {
         let penultimate = body.last!
-        addPart(scene: scene)
+        addPart(scene: scene, color: color)
         penultimate.pullNext()
     }
     
-    private func addPart(scene: SKScene) {
-        let color = colors[lastColorIndex % colors.count]
-        lastColorIndex += 1
+    private func addPart(scene: SKScene, color: UIColor) {
         let newPart = SnakePart(color: color, index: body.count, snake: self)
         body.append(newPart)
         scene.addChild(newPart.node)
     }
 
-    func start(scene: SKScene) {
+    func start(scene: SKScene, colorFactory: ColorFactory) {
         for _ in 0...3 {
-            addPart(scene: scene)
+            addPart(scene: scene, color: colorFactory.pop())
         }
         moveSnake(direction: directions.first!)
     }

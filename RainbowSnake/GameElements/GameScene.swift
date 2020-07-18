@@ -5,6 +5,7 @@ class GameScene: SKScene {
 
     let snake = Snake()
     let background: SKSpriteNode
+    let colorFactory = ColorFactory()
     
     var score: Int = 0
     var onFailure: ((Int) -> Void)? = nil
@@ -33,14 +34,14 @@ class GameScene: SKScene {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
-        snake.start(scene: self)
+        snake.start(scene: self, colorFactory: colorFactory)
         
         Wall.addTop(scene: self)
         Wall.addBottom(scene: self)
         Wall.addLeft(scene: self)
         Wall.addRight(scene: self)
         
-        Apple.spawn(scene: self)
+        Apple.spawn(scene: self, color: colorFactory.pop())
     }
     
     func touchedLeft() {
@@ -66,11 +67,13 @@ extension GameScene: SKPhysicsContactDelegate {
 
     func appleCollision(node: SKNode) {
         score += 1
-        node.removeFromParent()
-        Apple.spawn(scene: self)
-        snake.increaseLength(scene: self)
-        snake.increaseSpeed()
-        changeBackgroundColor()
+        if let n = node as? SKSpriteNode {
+            node.removeFromParent()
+            Apple.spawn(scene: self, color: colorFactory.pop())
+            snake.increaseLength(scene: self, color: n.color)
+            snake.increaseSpeed()
+            changeBackgroundColor()
+        }
     }
 
     func didBegin(_ contact: SKPhysicsContact) {

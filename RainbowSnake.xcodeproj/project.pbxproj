@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40C6EAD24C2F9A500C879AA /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C6EAC24C2F9A500C879AA /* ColorFactory.swift */; };
 		E4316CC3245F7C4100890537 /* RetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CC2245F7C4100890537 /* RetryViewController.swift */; };
 		E4316CC7245F893100890537 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4316CC6245F893100890537 /* Colors.xcassets */; };
 		E4316CC9246013A400890537 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316CC8246013A400890537 /* PhysicsCategory.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E40C6EAC24C2F9A500C879AA /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		E4316CC2245F7C4100890537 /* RetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryViewController.swift; sourceTree = "<group>"; };
 		E4316CC6245F893100890537 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E4316CC8246013A400890537 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				E4316CCA246014A900890537 /* GamePhysicsFactory.swift */,
 				E4316CC8246013A400890537 /* PhysicsCategory.swift */,
 				E4AEA121245B6F88008F0B1C /* Snake.swift */,
+				E40C6EAC24C2F9A500C879AA /* ColorFactory.swift */,
 				E4316CCE24601D2D00890537 /* Wall.swift */,
 			);
 			path = GameElements;
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C6EAD24C2F9A500C879AA /* ColorFactory.swift in Sources */,
 				E46FBF872460C35B00CFBB4D /* ScoreRepository.swift in Sources */,
 				E4316CCD24601B9E00890537 /* Apple.swift in Sources */,
 				E4316CC3245F7C4100890537 /* RetryViewController.swift in Sources */,
@@ -491,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 364F6TR723;
 				INFOPLIST_FILE = RainbowSnake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -498,6 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = blops.RainbowSnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -510,6 +516,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 364F6TR723;
 				INFOPLIST_FILE = RainbowSnake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -517,6 +524,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = blops.RainbowSnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -5,8 +5,8 @@ class Apple {
 
     static let appleSize = CGSize(width: 20, height: 20)
 
-    static func spawn(scene: SKScene) {
-        let node = SKSpriteNode(color: UIColor.red, size: appleSize)
+    static func spawn(scene: SKScene, color: UIColor) {
+        let node = SKSpriteNode(color: color, size: appleSize)
 
         let x = CGFloat.random(in: 0...scene.size.width) / 1.2 - scene.size.width / 2
         let y = CGFloat.random(in: 0...scene.size.height) / 1.2 - scene.size.height / 2
